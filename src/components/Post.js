@@ -45,12 +45,14 @@ const Post = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 30,
+        paddingVertical: 20,
+        paddingHorizontal: 30,
         backgroundColor: '#3b3b3b',
         borderRadius: 16,
         marginVertical: 8,
         marginHorizontal: 12,
-        width: 390,
+        width: "100%",
+        height: "auto",
         flexDirection: "row",
         flexWrap: "wrap",
     },
@@ -58,8 +60,8 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 15,
         paddingBottom: 8,
-        paddingLeft: 10,
-        textAlign: "left",
+        paddingLeft: 20,
+        textAlign: 'left',
         fontWeight: "bold"
     },
     time: {
@@ -69,20 +71,16 @@ const styles = StyleSheet.create({
         textAlign: "right",
     },
     imgContainer: {
+        marginTop: 7,
         position: "relative",
         width: 110,
         height: 110,
-        borderRadius: 16,
+        borderRadius: 18,
     },
     container2: {
         position: "relative",
         width: 220,
-        height: 110,
-    },
-    container3: {
-        flex: 1,
-        flexDirection: "row",
-        flexWrap: "wrap",
+        height: "auto",
     },
     data: {
         color: "white",
