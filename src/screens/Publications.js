@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Linking, ActivityIndicator } from 'react-native';
 import { getPostsHot, getPostsNew, getPostsPopular, getPostsTop } from '../api/posts';
 import ButtonGroup from '../components/ButtonGroup';
 import HeaderApp from '../components/HeaderApp';
@@ -9,6 +9,8 @@ import Post from '../components/Post';
 // create a component
 const Publications = () => {
     const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
         (async () => {
             await loadPost();
@@ -36,6 +38,8 @@ const Publications = () => {
     }
 
     const loadPost = async () => {
+        setIsLoading(true);
+        setPosts([]);
         try {
             const response = await getPostsNew();
             let current = new Date();
@@ -53,11 +57,15 @@ const Publications = () => {
                 })
             }
             setPosts(postsArray);
+            setIsLoading(false);
         } catch (error) {
+            setIsLoading(false);
             console.error(error);
         }
     }
     const changeType = async (type) => {
+        setIsLoading(true);
+        setPosts([]);
         try {
             const response = (type === "new" ? await getPostsNew() :
                 (type === "top" ? await getPostsTop() :
@@ -79,7 +87,9 @@ const Publications = () => {
                 })
             }
             setPosts(postsArray);
+            setIsLoading(false);
         } catch (error) {
+            setIsLoading(false);
             console.error(error);
         }
     }
@@ -97,6 +107,7 @@ const Publications = () => {
         <View style={styles.container}>
             <HeaderApp />
             <ButtonGroup changeType={(type) => changeType(type)} />
+            {isLoading && <ActivityIndicator size="large" color="orange" />}
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 style={{ marginTop: 12 }}

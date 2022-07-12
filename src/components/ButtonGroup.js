@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 17,
         borderRadius: 13,
         elevation: 8,
-        backgroundColor: 'gray',
+        backgroundColor: "#F0D290",
         margin: 5,
     },
     textButton: {
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         lineHeight: 17,
         fontWeight: 'bold',
         letterSpacing: 0.4,
-        color: 'white',
+        color: 'black',
     }
 });
 

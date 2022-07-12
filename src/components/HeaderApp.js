@@ -8,8 +8,9 @@ const HeaderApp = () => {
         <View style={styles.container}>
             <Image
                 style={styles.tinyLogo}
-                source={require("../../assets/reddit-logo.png")} />
-            <Text style={styles.textLogo}>PUBLICATIONS</Text>
+                source={require("../../assets/reddit-logo.png")}
+            />
+            <Text style={styles.textLogo}>FEED</Text>
         </View>
     );
 };
@@ -28,9 +29,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     textLogo: {
-        fontSize: 17,
+        fontSize: 22,
         fontWeight: 'bold',
-        margin: 10,
+        margin: 5,
     },
 });
 

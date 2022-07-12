@@ -1,36 +1,42 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { LinearGradient } from "expo-linear-gradient";
 
 // create a component
 const Post = (props) => {
     const { post, onPress } = props;
     return (
+
         <TouchableOpacity
-            style={styles.container}
             onPress={onPress}>
-            <View style={styles.imgContainer}>
-                <Image
-                    source={{ uri: post?.image }}
-                    style={styles.imgContainer}
-                    resizeMode="contain"
-                />
-            </View>
-            <View style={styles.container2}>
-                <Text style={styles.time}>{post.time}</Text>
-                <Text style={styles.title}>{post.title}</Text>
-                <View style={styles.container3}>
-                    <View style={styles.container4}>
-                        <Text style={styles.data}>{post.autor}</Text>
-                    </View>
-                    <View style={styles.container4}>
-                        <Text style={styles.data}>Score: {post.votes}</Text>
-                    </View>
-                    <View style={styles.container4}>
-                        <Text style={styles.data}>{post.comments} comments</Text>
+            <LinearGradient
+                colors={["#DE834D", "#A3423C", "#781D42"]}
+                style={styles.container}>
+                <View style={styles.imgContainer}>
+                    <Image
+                        source={{ uri: post?.image }}
+                        style={styles.imgContainer}
+                        resizeMode="contain"
+                    />
+                </View>
+                <View style={styles.container2}>
+                    <Text style={styles.time}>{post.time}</Text>
+                    <Text style={styles.title}>{post.title}</Text>
+                    <View style={styles.container3}>
+                        <View style={styles.container4}>
+                            <Text style={styles.data}>{post.autor}</Text>
+                        </View>
+                        <View style={styles.container4}>
+                            <Text style={styles.data}>Score: {post.votes}</Text>
+                        </View>
+                        <View style={styles.container4}>
+                            <Text style={styles.data}>{post.comments} comments</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
+
+            </LinearGradient>
         </TouchableOpacity>
     );
 };
@@ -40,9 +46,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 30,
-        backgroundColor: "black",
+        backgroundColor: '#3b3b3b',
         borderRadius: 16,
-        marginVertical: 5,
+        marginVertical: 8,
         marginHorizontal: 12,
         width: 390,
         flexDirection: "row",
